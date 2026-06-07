@@ -54,7 +54,10 @@ public class Menu {
                 System.out.println("Opcion invalida");
             }
             switch(opcion) {
-            case 1: break;
+            case 1:
+            	Administrador.agregarMago();
+            	break;
+            	
             case 2: break;
             case 3: break;
             case 4: break;
