@@ -95,5 +95,81 @@ public class Administrador {
         } catch(Exception e) {
             System.out.println("Error al modificar mago");
         }
-    } 
+    }
+    public static void eliminarMago() {
+        try {
+            Scanner s = new Scanner(System.in);
+            
+            System.out.println("Magos disponibles:");
+            int indice = 1;
+            for(Mago m : Sistema.listaMagos) {
+                System.out.println(indice + ". " + m.getNombre());
+                indice++;
+            }
+            
+            System.out.print("Elige el mago a eliminar: ");
+            int opcion = Integer.parseInt(s.nextLine());
+            Mago mago = Sistema.listaMagos.get(opcion - 1);
+            
+            Sistema.listaMagos.remove(mago);
+            System.out.println("Mago eliminado!");
+            
+        } catch(Exception e) {
+            System.out.println("Error al eliminar mago");
+        }
+    }
+    public static void agregarHechizo() {
+        try {
+            Scanner s = new Scanner(System.in);
+            
+            System.out.print("Ingrese nombre del hechizo: ");
+            String nombre = s.nextLine();
+            
+            System.out.println("Tipo de hechizo:");
+            System.out.println("1. Fuego");
+            System.out.println("2. Tierra");
+            System.out.println("3. Planta");
+            System.out.println("4. Agua");
+            System.out.print("> ");
+            int tipo = Integer.parseInt(s.nextLine());
+            
+            System.out.print("Ingrese daño: ");
+            int damage = Integer.parseInt(s.nextLine());
+            
+            Hechizo h = null;
+            
+            if(tipo == 1) {
+                System.out.print("Duracion quemadura: ");
+                int duracion = Integer.parseInt(s.nextLine());
+                h = new HechizoFuego(nombre, "Fuego", damage, duracion);
+                
+            } else if(tipo == 2) {
+                System.out.print("Mejora defensa: ");
+                int mejora = Integer.parseInt(s.nextLine());
+                h = new HechizoTierra(nombre, "Tierra", damage, mejora);
+                
+            } else if(tipo == 3) {
+                System.out.print("Duracion stun: ");
+                int stun = Integer.parseInt(s.nextLine());
+                System.out.print("Cantidad plantas: ");
+                int plantas = Integer.parseInt(s.nextLine());
+                h = new HechizoPlanta(nombre, "Planta", damage, stun, plantas);
+                
+            } else if(tipo == 4) {
+                System.out.print("Cantidad heal: ");
+                int heal = Integer.parseInt(s.nextLine());
+                System.out.print("Presion agua: ");
+                int presion = Integer.parseInt(s.nextLine());
+                h = new HechizoAgua(nombre, "Agua", damage, heal, presion);
+            }
+            
+            if(h != null) {
+                Sistema.listaHechizos.add(h);
+                System.out.println("Hechizo agregado!");
+            }
+            
+        } catch(Exception e) {
+            System.out.println("Error al agregar hechizo");
+        }
+    }
 }

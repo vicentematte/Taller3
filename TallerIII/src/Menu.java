@@ -61,8 +61,12 @@ public class Menu {
             case 2: 
             	Administrador.modificarMago();
             	break;
-            case 3: break;
-            case 4: break;
+            case 3:
+                Administrador.eliminarMago();
+                break;
+            case 4:
+                Administrador.agregarHechizo();
+                break;
             case 5: break;
             case 6: break;
             case 0:
