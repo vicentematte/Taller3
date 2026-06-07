@@ -46,4 +46,30 @@ public class Sistema {
         }
             
     }
+    public static void cargarMagos() {
+        try {
+            File file = new File("Magos.txt");
+            Scanner s = new Scanner(file);
+            while(s.hasNextLine()) {
+                String linea = s.nextLine();
+                String[] partes = linea.split(";");
+                String nombre = partes[0];
+                
+                Mago mago = new Mago(nombre);
+                
+                String[] hechizos = partes[1].split("\\|");
+                for(String nombreHechizo : hechizos) {
+                    for(Hechizo h : listaHechizos) {
+                        if(h.getNombre().equals(nombreHechizo)) {
+                            mago.getListaHechizo().add(h);
+                        }
+                    }
+                }
+                listaMagos.add(mago);
+            }
+            s.close();
+        } catch(FileNotFoundException e) {
+            System.out.println("Archivo no encontrado");
+        } 
+    }
 }
