@@ -103,8 +103,13 @@ public class Menu {
                 System.out.println("Opcion invalida");
             }
             switch(opcion) {
-            case 1: break;
-            case 2: break;
+            case 1:
+                Analista.top10Hechizos();
+                break;
+
+            case 2:
+                Analista.top3Magos();
+                break;
             case 3:
                 Analista.mostrarHechizos();
                 break;
