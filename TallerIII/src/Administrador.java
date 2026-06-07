@@ -95,5 +95,5 @@ public class Administrador {
         } catch(Exception e) {
             System.out.println("Error al modificar mago");
         }
-    }
+    } 
 }
