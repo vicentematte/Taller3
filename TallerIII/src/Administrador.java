@@ -5,6 +5,7 @@ public class Administrador {
 	private static Scanner s;
     public static void agregarMago() {//1
         try {
+            Sistema.guardarMagos();
             s = new Scanner(System.in);
             System.out.print("Ingrese nombre del mago: ");
             String nombre = s.nextLine();
@@ -37,6 +38,7 @@ public class Administrador {
     }
     public static void modificarMago() {//2
         try {
+            Sistema.guardarMagos();
             s = new Scanner(System.in);
             
             System.out.println("Magos disponibles:");
@@ -98,6 +100,8 @@ public class Administrador {
     }
     public static void eliminarMago() {//3
         try {
+            Sistema.guardarMagos();
+
             s = new Scanner(System.in);
             
             System.out.println("Magos disponibles:");
@@ -120,6 +124,7 @@ public class Administrador {
     }
     public static void agregarHechizo() {//4
         try {
+        	Sistema.guardarHechizos();
             s = new Scanner(System.in);
             
             System.out.print("Ingrese nombre del hechizo: ");
@@ -174,6 +179,8 @@ public class Administrador {
     }
     public static void modificarHechizo() {//5
         try {
+        	Sistema.guardarHechizos();
+
             s = new Scanner(System.in);
             
             System.out.println("Hechizos disponibles:");
@@ -212,6 +219,8 @@ public class Administrador {
     }
     public static void eliminarHechizo() {//6
         try {
+        	Sistema.guardarHechizos();
+
             s = new Scanner(System.in);
             
             System.out.println("Hechizos disponibles:");
@@ -233,7 +242,7 @@ public class Administrador {
             Sistema.listaHechizos.remove(hechizo);
             System.out.println("Hechizo eliminado!");
             
-        } catch(Exception e) {
+        }catch(Exception e) {
             System.out.println("Error al eliminar hechizo");
         }
     }

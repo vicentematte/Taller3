@@ -1,6 +1,9 @@
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -71,5 +74,48 @@ public class Sistema {
         } catch(FileNotFoundException e) {
             System.out.println("Archivo no encontrado");
         } 
+    }
+    public static void guardarHechizos() {
+        try {
+            BufferedWriter escribano = new BufferedWriter(new FileWriter("Hechizos.txt"));
+            for(Hechizo h : listaHechizos) {
+                if(h instanceof HechizoFuego) {
+                    HechizoFuego hf = (HechizoFuego) h;
+                    escribano.write(h.getNombre() + ";" + h.getTipo() + ";" + h.getDamage() + ";" + hf.getDuracionQuemadura());
+                } else if(h instanceof HechizoTierra) {
+                    HechizoTierra ht = (HechizoTierra) h;
+                    escribano.write(h.getNombre() + ";" + h.getTipo() + ";" + h.getDamage() + ";" + ht.getMejoraDefensa());
+                } else if(h instanceof HechizoPlanta) {
+                    HechizoPlanta hp = (HechizoPlanta) h;
+                    escribano.write(h.getNombre() + ";" + h.getTipo() + ";" + h.getDamage() + ";" + hp.getDuracionStun() + "," + hp.getCantPlantas());
+                } else if(h instanceof HechizoAgua) {
+                    HechizoAgua ha = (HechizoAgua) h;
+                    escribano.write(h.getNombre() + ";" + h.getTipo() + ";" + h.getDamage() + ";" + ha.getCantHeal() + "," + ha.getPresionAgua());
+                }
+                escribano.newLine();
+            }
+            escribano.close();
+    		}catch(IOException e) {
+            System.out.println("Error al guardar hechizos");
+        }
+    }
+    public static void guardarMagos() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Magos.txt"));
+            for(Mago m : listaMagos) {
+                String linea = m.getNombre() + ";";
+                for(int i = 0; i < m.getListaHechizo().size(); i++) {
+                    linea += m.getListaHechizo().get(i).getNombre();
+                    if(i < m.getListaHechizo().size() - 1) {
+                        linea += "|";
+                    }
+                }
+                bw.write(linea);
+                bw.newLine();
+            }
+            bw.close();
+        } catch(IOException e) {
+            System.out.println("Error al guardar magos");
+        }
     }
 }
