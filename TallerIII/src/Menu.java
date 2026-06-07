@@ -58,7 +58,9 @@ public class Menu {
             	Administrador.agregarMago();
             	break;
             	
-            case 2: break;
+            case 2: 
+            	Administrador.modificarMago();
+            	break;
             case 3: break;
             case 4: break;
             case 5: break;
