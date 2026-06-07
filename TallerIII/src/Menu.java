@@ -67,8 +67,13 @@ public class Menu {
             case 4:
                 Administrador.agregarHechizo();
                 break;
-            case 5: break;
-            case 6: break;
+            case 5: 
+            	Administrador.modificarHechizo();
+            	break;
+            	
+            case 6: 
+            	Administrador.eliminarHechizo();
+            	break;
             case 0:
                 System.out.println("Volviendo...");
                 break;

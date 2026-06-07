@@ -2,10 +2,10 @@
 import java.util.Scanner;
 
 public class Administrador {
-
+	private static Scanner s;
     public static void agregarMago() {
         try {
-            Scanner s = new Scanner(System.in);
+            s = new Scanner(System.in);
             System.out.print("Ingrese nombre del mago: ");
             String nombre = s.nextLine();
             
@@ -37,7 +37,7 @@ public class Administrador {
     }
     public static void modificarMago() {
         try {
-            Scanner s = new Scanner(System.in);
+            s = new Scanner(System.in);
             
             System.out.println("Magos disponibles:");
             int indice = 1;
@@ -98,7 +98,7 @@ public class Administrador {
     }
     public static void eliminarMago() {
         try {
-            Scanner s = new Scanner(System.in);
+            s = new Scanner(System.in);
             
             System.out.println("Magos disponibles:");
             int indice = 1;
@@ -120,7 +120,7 @@ public class Administrador {
     }
     public static void agregarHechizo() {
         try {
-            Scanner s = new Scanner(System.in);
+            s = new Scanner(System.in);
             
             System.out.print("Ingrese nombre del hechizo: ");
             String nombre = s.nextLine();
@@ -170,6 +170,71 @@ public class Administrador {
             
         } catch(Exception e) {
             System.out.println("Error al agregar hechizo");
+        }
+    }
+    public static void modificarHechizo() {
+        try {
+            s = new Scanner(System.in);
+            
+            System.out.println("Hechizos disponibles:");
+            int indice = 1;
+            for(Hechizo h : Sistema.listaHechizos) {
+                System.out.println(indice + ". " + h.getNombre());
+                indice++;
+            }
+            
+            System.out.print("Elige un hechizo: ");
+            int opcion = Integer.parseInt(s.nextLine());
+            Hechizo hechizo = Sistema.listaHechizos.get(opcion - 1);
+            
+            System.out.println("Que deseas modificar?");
+            System.out.println("1. Nombre");
+            System.out.println("2. Daño");
+            System.out.print("> ");
+            int op = Integer.parseInt(s.nextLine());
+            
+            if(op == 1) {
+                System.out.print("Nuevo nombre: ");
+                String nuevoNombre = s.nextLine();
+                hechizo.setNombre(nuevoNombre);
+                System.out.println("Nombre modificado!");
+                
+            } else if(op == 2) {
+                System.out.print("Nuevo daño: ");
+                int nuevoDamage = Integer.parseInt(s.nextLine());
+                hechizo.setDamage(nuevoDamage);
+                System.out.println("Daño modificado!");
+            }
+            
+        } catch(Exception e) {
+            System.out.println("Error al modificar hechizo");
+        }
+    }
+    public static void eliminarHechizo() {
+        try {
+            s = new Scanner(System.in);
+            
+            System.out.println("Hechizos disponibles:");
+            int indice = 1;
+            for(Hechizo h : Sistema.listaHechizos) {
+                System.out.println(indice + ". " + h.getNombre());
+                indice++;
+            }
+            
+            System.out.print("Elige el hechizo a eliminar: ");
+            int opcion = Integer.parseInt(s.nextLine());
+            Hechizo hechizo = Sistema.listaHechizos.get(opcion - 1);
+            
+            // También lo eliminamos de los magos que lo tengan
+            for(Mago m : Sistema.listaMagos) {
+                m.getListaHechizo().removeIf(h -> h.getNombre().equals(hechizo.getNombre()));
+            }
+            
+            Sistema.listaHechizos.remove(hechizo);
+            System.out.println("Hechizo eliminado!");
+            
+        } catch(Exception e) {
+            System.out.println("Error al eliminar hechizo");
         }
     }
 }
