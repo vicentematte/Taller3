@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Administrador {
 	private static Scanner s;
-    public static void agregarMago() {
+    public static void agregarMago() {//1
         try {
             s = new Scanner(System.in);
             System.out.print("Ingrese nombre del mago: ");
@@ -35,7 +35,7 @@ public class Administrador {
             System.out.println("Error al agregar mago");
         }
     }
-    public static void modificarMago() {
+    public static void modificarMago() {//2
         try {
             s = new Scanner(System.in);
             
@@ -96,7 +96,7 @@ public class Administrador {
             System.out.println("Error al modificar mago");
         }
     }
-    public static void eliminarMago() {
+    public static void eliminarMago() {//3
         try {
             s = new Scanner(System.in);
             
@@ -118,7 +118,7 @@ public class Administrador {
             System.out.println("Error al eliminar mago");
         }
     }
-    public static void agregarHechizo() {
+    public static void agregarHechizo() {//4
         try {
             s = new Scanner(System.in);
             
@@ -172,7 +172,7 @@ public class Administrador {
             System.out.println("Error al agregar hechizo");
         }
     }
-    public static void modificarHechizo() {
+    public static void modificarHechizo() {//5
         try {
             s = new Scanner(System.in);
             
@@ -210,7 +210,7 @@ public class Administrador {
             System.out.println("Error al modificar hechizo");
         }
     }
-    public static void eliminarHechizo() {
+    public static void eliminarHechizo() {//6
         try {
             s = new Scanner(System.in);
             

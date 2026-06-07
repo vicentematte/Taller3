@@ -105,10 +105,20 @@ public class Menu {
             switch(opcion) {
             case 1: break;
             case 2: break;
-            case 3: break;
-            case 4: break;
-            case 5: break;
-            case 6: break;
+            case 3:
+                Analista.mostrarHechizos();
+                break;
+            case 4:
+                Analista.mostrarMagos();
+                break;
+                
+            case 5:
+                Analista.mostrarHechizosConPuntaje();
+                break;
+            case 6:
+                Analista.mostrarMagosConPuntaje();
+                break;
+                
             case 0:
                 System.out.println("Volviendo...");
                 break;
