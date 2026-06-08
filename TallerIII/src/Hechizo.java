@@ -3,7 +3,12 @@ public abstract class Hechizo implements Puntaje{
 	private String nombre;
 	private String tipo;
 	private int damage;
-	
+	/** COmo tenemos varios hechizos con cosas en comun creamos una clase abstracta, ya que aparte no 
+  		tenemos un hechizo unitario, me refiero a que no existe un hechizo de tipo hechizo siempre es con algo mas.
+	 * @param nombre - nombre del hechizo
+	 * @param tipo - la naturaleza del hechizo 
+	 * @param damage - el damage que causara el hechizo
+	 */
 	public Hechizo(String nombre, String tipo, int damage) {
 		super();
 		this.nombre = nombre;
@@ -34,7 +39,7 @@ public abstract class Hechizo implements Puntaje{
 
 	@Override
 	public String toString() {
-		return "Hechizos [nombre=" + nombre + ", tipo=" + tipo + ", damage=" + damage + "]";
+	    return nombre + " | Tipo: " + tipo + " | Damage: " + damage;
 	}
 	
 	
