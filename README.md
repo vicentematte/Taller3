@@ -12,21 +12,21 @@ Usuario GitHub: vicentematte
 
 ## Estructura del proyecto
 TallerIII
-    src  
-      Main.java
-      Sistema.java
-      Menu.java
-      Administrador.java
-      Analista.java
-      Puntaje.java
-      Hechizo.java
-      HechizoFuego.java
-      HechizoTierra.java
-      HechizoPlanta.java
-      HechizoAgua.java
-      Mago.java
-  Hechizos.txt
-  Magos.txt
+├── src
+│   ├── Main.java
+│   ├── Sistema.java
+│   ├── Menu.java
+│   ├── Administrador.java
+│   ├── Analista.java
+│   ├── Puntaje.java
+│   ├── Hechizo.java
+│   ├── HechizoFuego.java
+│   ├── HechizoTierra.java
+│   ├── HechizoPlanta.java
+│   ├── HechizoAgua.java
+│   └── Mago.java
+├── Hechizos.txt
+└── Magos.txt
 
   
 ## Instrucciones de ejecución
