@@ -4,7 +4,10 @@ public class Mago {
 	private String nombre;
 	private ArrayList<Hechizo> listaHechizo = new ArrayList<>();
 	
-
+	/** Clase Mago: representa a un mago
+	 * cada mago tiene un nombre y una lista de hechizos que domina
+	 * @param nombre - nombre del mago
+	 */
 
 	public Mago(String nombre) {
 		super();
@@ -28,9 +31,10 @@ public class Mago {
 		this.listaHechizo = listaHechizo;
 	}
 
+	// Muestra el nombre del mago y sus hechizos asociados
 	@Override
 	public String toString() {
-		return "Mago [nombre=" + nombre + ", listaHechizo=" + listaHechizo + "]";
+		return "Mago: " + nombre + " | Hechizos: " + listaHechizo;
 	}
 	
 	

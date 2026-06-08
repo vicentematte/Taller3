@@ -8,9 +8,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sistema {
+    // Lista global de hechizos cargados desde Hechizos.txt
     public static ArrayList<Hechizo> listaHechizos = new ArrayList<>();
+    // Lista global de magos cargados desde Magos.txt
+
     public static ArrayList<Mago> listaMagos = new ArrayList<>();    
     
+    
+    /** Lee el archivo  de hechizos.txt y carga todos los hechizos en la lista segun su tipo (Fuego, Tierra, Planta, Agua)
+     */
     public static void cargarHechizos() {
         try {
             File file = new File("Hechizos.txt");
@@ -49,6 +55,8 @@ public class Sistema {
         }
             
     }
+    
+    /** Lee el archivo Magos.txt y carga todos los magosasignandoles sus hechizos desde la lista de hechizos ya cargada*/
     public static void cargarMagos() {
         try {
             File file = new File("Magos.txt");
@@ -75,6 +83,9 @@ public class Sistema {
             System.out.println("Archivo no encontrado");
         } 
     }
+    
+    /** Sobrescribe el archivo Hechizos.txt con los datos actuales
+     * manteniendo el formato */
     public static void guardarHechizos() {
         try {
             BufferedWriter escribano = new BufferedWriter(new FileWriter("Hechizos.txt"));
@@ -95,10 +106,14 @@ public class Sistema {
                 escribano.newLine();
             }
             escribano.close();
-    		}catch(IOException e) {
+    		}catch(IOException e) 
+        {
             System.out.println("Error al guardar hechizos");
         }
     }
+    
+    /** Sobrescribe el archivo magos.txt con los datos actuales
+     * manteniendo el formato */
     public static void guardarMagos() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("Magos.txt"));

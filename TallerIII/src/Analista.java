@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Analista {
-
+	// Muestra todos los hechizos del sistema
     public static void mostrarHechizos() {
         int indice = 1;
         for(Hechizo h : Sistema.listaHechizos) {
@@ -10,6 +10,7 @@ public class Analista {
         }
     }
 
+    //Muestra todos los magos del sistema
     public static void mostrarMagos() {
         int indice = 1;
         for(Mago m : Sistema.listaMagos) {
@@ -17,6 +18,8 @@ public class Analista {
             indice++;
         }
     }
+    
+    // Muestra todos los hechizos junto a sus puntajes calculados
     public static void mostrarHechizosConPuntaje() {
         int indice = 1;
         for(Hechizo h : Sistema.listaHechizos) {
@@ -25,6 +28,7 @@ public class Analista {
         }
     }
 
+    // Muestra todos los magos junto a su puntaje total calculado 
     public static void mostrarMagosConPuntaje() {
         int indice = 1;
         for(Mago m : Sistema.listaMagos) {
@@ -36,6 +40,8 @@ public class Analista {
             indice++;
         }
     }
+    
+    //  Muestra el top 10 de hechizos ordenados de mayor a menor puntaje 
     public static void top10Hechizos() {
         ArrayList<Hechizo> lista = new ArrayList<>(Sistema.listaHechizos);
         
@@ -55,6 +61,9 @@ public class Analista {
             System.out.println((i+1) + ". " + lista.get(i).getNombre() + " - Puntaje: " + lista.get(i).calcularPuntaje());
         }
     }
+    
+
+    // Muestra el top 10 de hechizos ordenados de mayor a menor puntaje
     public static void top3Magos() {
         ArrayList<Mago> lista = new ArrayList<>(Sistema.listaMagos);
         

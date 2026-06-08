@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
     static Scanner s = new Scanner(System.in);
     
+    // Muestra el menu principal del programa en cuestion con las opciones de Administrador y Analista 
     public static void mostrarMenu() {
         int opcion;
         do {
@@ -34,6 +35,7 @@ public class Menu {
         } while(opcion != 0);
     }
     
+    // en caso de elegir la opcion de admin, sale este menu por pantalla con sus respectivas opciones crud.
     public static void mostrarMenuAdministrador() {
         int opcion;
         do {
@@ -83,6 +85,7 @@ public class Menu {
         } while(opcion != 0);
     }
     
+    //Muestra las opciones de Analista rankings/listados 
     public static void mostrarMenuAnalista() {
         int opcion;
         do {
